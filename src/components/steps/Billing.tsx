@@ -18,6 +18,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import _isEmpty from 'lodash.isempty';
 import { ILocalBank } from '../../types/localbank';
 import useBreadcrumbs from '../../hooks/useBreadcrumbs';
+import { Box, Typography } from '@material-ui/core';
 
 type TFormComponent = ForwardRefExoticComponent<PropsWithRef<IBillingProps>>;
 
@@ -130,28 +131,38 @@ const Billing = forwardRef(
               name="period"
               defaultValue={defaultPeriod}
               render={({ field }) => (
-                <RadioGroup row value={field.value} onChange={field.onChange}>
-                  <FormControlLabel
-                    value="0"
-                    control={<Radio />}
-                    label="Monthly"
-                    disabled={
-                      bankData?.cardSchemes.includes(1) ||
-                      bankData?.cardSchemes.includes(2)
-                    }
-                  />
-                  <FormControlLabel
-                    value="1"
-                    control={<Radio />}
-                    label="Quaterly"
-                    disabled={bankData?.cardSchemes.includes(2)}
-                  />
-                  <FormControlLabel
-                    value="2"
-                    control={<Radio />}
-                    label="Annually"
-                  />
-                </RadioGroup>
+                <Box
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography style={{ marginRight: '1rem' }} variant="body2">
+                    Period:
+                  </Typography>
+                  <RadioGroup row value={field.value} onChange={field.onChange}>
+                    <FormControlLabel
+                      value="0"
+                      control={<Radio />}
+                      label="Monthly"
+                      disabled={
+                        bankData?.cardSchemes.includes(1) ||
+                        bankData?.cardSchemes.includes(2)
+                      }
+                    />
+                    <FormControlLabel
+                      value="1"
+                      control={<Radio />}
+                      label="Quaterly"
+                      disabled={bankData?.cardSchemes.includes(2)}
+                    />
+                    <FormControlLabel
+                      value="2"
+                      control={<Radio />}
+                      label="Annually"
+                    />
+                  </RadioGroup>
+                </Box>
               )}
             />
           )}

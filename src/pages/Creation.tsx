@@ -15,7 +15,7 @@ import { bankListStatus, useCreateBank } from '../state/banklist';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs2C2P';
 import useBreadcrumbs from '../hooks/useBreadcrumbs';
 import { Status } from '../state/status';
-import { Box } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import { CircularProgress } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { Snackbar } from '@material-ui/core';
@@ -97,7 +97,7 @@ const Creation: FunctionComponent<ICreationProps> = ({
   };
 
   return (
-    <>
+    <Container disableGutters>
       {status === Status.CREATING && (
         <Box style={{ display: 'flex', justifyContent: 'center' }}>
           <CircularProgress />
@@ -128,7 +128,7 @@ const Creation: FunctionComponent<ICreationProps> = ({
           ref={formRef}
         />
       </Stepper>
-    </>
+    </Container>
   );
 };
 

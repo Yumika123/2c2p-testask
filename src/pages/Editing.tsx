@@ -23,7 +23,7 @@ import useBreadcrumbs from '../hooks/useBreadcrumbs';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs2C2P';
 import _isEmpty from 'lodash.isempty';
 import { Status } from '../state/status';
-import { Box } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import { CircularProgress } from '@material-ui/core';
 import _isEqual from 'lodash.isequal';
 
@@ -111,7 +111,7 @@ const Editing: FunctionComponent<IEditingProps> = ({
   };
 
   return (
-    <>
+    <Container disableGutters>
       {status === Status.UPDATING && (
         <Box style={{ display: 'flex', justifyContent: 'center' }}>
           <CircularProgress />
@@ -146,7 +146,7 @@ const Editing: FunctionComponent<IEditingProps> = ({
           )}
         </Stepper>
       )}
-    </>
+    </Container>
   );
 };
 
